@@ -202,13 +202,18 @@
             animationId = requestAnimationFrame(update);
         }
 
+        // Variable pour l'intervalle de vitesse
+        let speedInterval;
+
         // Augmenter la vitesse
-        setInterval(() => {
-            if (gameRunning && gameSpeed < 15) {
-                gameSpeed += 0.3;
-                document.getElementById('speed').textContent = gameSpeed.toFixed(1);
-            }
-        }, 2000);
+        function startSpeedIncrease() {
+            speedInterval = setInterval(() => {
+                if (gameRunning && gameSpeed < 20) {
+                    gameSpeed += 0.5;
+                    document.getElementById('speed').textContent = gameSpeed.toFixed(1);
+                }
+            }, 2000);
+        }
 
         // Démarrer le jeu
         function startGame() {
@@ -226,10 +231,13 @@
             upBtn.disabled = false;
             downBtn.disabled = false;
             
+            startSpeedIncrease();
             update();
         }
 
         function resetGame() {
+            clearInterval(speedInterval);
+            cancelAnimationFrame(animationId);
             startBtn.textContent = 'DÉMARRER';
             startBtn.disabled = false;
             upBtn.disabled = true;
@@ -260,4 +268,4 @@
         downBtn.disabled = true;
         drawRoad();
         drawCar();
-   
+    
