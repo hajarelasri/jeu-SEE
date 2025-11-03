@@ -1,0 +1,25 @@
+
+.one{
+    background:black;
+   border-bottom: 2px dashed yellow;
+    
+}
+.two{
+    background:black;
+      border-top: 2px dashed yellow;
+
+}
+.route{
+    padding: 0;
+    margin: 0;
+    display: flexbox;
+    height: 200px;   
+   
+}
+.chanti{
+    padding: 0;
+    margin: 0;
+    display: flexbox;
+    border: 2px solide white;
+  
+}
